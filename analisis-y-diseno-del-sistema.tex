@@ -1,0 +1,39 @@
+\chapter{Análisis y Diseño del Sistema}	
+
+\section{Frontend}
+
+\section{Backend}
+
+\subsection{Manejo de rutas y m\'etodos}
+
+\begin{itemize}
+  \item \texttt{'/'}.\\
+    En la ruta principal, el usuario entrar\'a a la \textit{landing page}, donde se mostrar\'an los objetivos b\'asicos de la aplicaci\'on, y el apartado respectivo para entrar a la aplicaci\'on
+  \item \texttt{'/login'}.\\
+    \begin{itemize}
+      \item \texttt{GET}. Se desplegar\'a la pantalla para iniciar sesi\'on, donde estar\'an los campos competentes para iniciar sesi\'on.
+      \item \texttt{POST}. Se enviar\'an las credenciales del usuario que quiera iniciar sesi\'on.
+    \end{itemize}
+  \item \texttt{'/app/:idUser/tasks'}
+    \begin{itemize}
+      \item \texttt{GET}. Se mostrar\'an todas las tareas que el usuario tenga (mostrar\'a como tareas principales aquellas que no tengan definido su par\'ametro de tarea padre).
+      \item \texttt{POST}. La ruta recibir\'a en el formato correspondiente las tareas a crear
+    \end{itemize}
+  \item \texttt{'/app/:idUser/tasks/:idTask'}
+    \begin{itemize}
+      \item \texttt{GET}. Al acceder a esta ruta, se recibir\'a la informaci\'on de la tarea pasada por \texttt{idTask}
+      \item \texttt{PUT}. Se actualizar\'a la informaci\'on de la tarea correspondiente.
+      \item \texttt{DELETE}. Se eliminar\'a la tarea especificada
+    \end{itemize}
+  \item \texttt{'/app/:idUser/tasks/:idTask/subtasks'}
+    \begin{itemize}
+      \item \texttt{GET}. Se obtendr\'an todas las tareas hijas de la tarea pasada por \texttt{idTask}
+      \item \texttt{POST}. Se a\~nadir\'a la tarea hija correspondiente a la tarea pasada por \texttt{idTask}
+    \end{itemize}
+  \item \texttt{'/app/:idUser/tasks/:idTask/subtasks/:idSubtask'}
+    \begin{itemize}
+      \item \texttt{GET}. Obtener una tarea hija espec\'ifica
+      \item \texttt{PUT}. Actualiza los par\'ametros de la tarea hija especificada.
+      \item \texttt{DELETE}. Elimina una tarea hija especificada
+    \end{itemize}
+\end{itemize}

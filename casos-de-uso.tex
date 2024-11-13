@@ -1,0 +1,221 @@
+\begin{longtable}[c]{p{3cm}p{5cm}p{4cm}p{2cm}}
+  \endfirsthead
+  \endhead
+  \endfoot
+  \hline
+  Id y nombre: & \multicolumn{3}{p{11cm}}{CU-\thetable. Entrar a la plataforma}\\
+  \hline
+  Creado por: & \multicolumn{3}{p{11cm}}{Alejandro}\\
+  \hline
+  Actor principal: & Usuario final & Actores secundarios: & Base de datos, aplicaci\'on principal\\
+  \hline
+  Descripci\'on & \multicolumn{3}{p{11cm}}{El usuario final entrar\'a a la plataforma dando un correo electr\'onico y una contrase\~na}\\
+  \hline
+  Trigger: & \multicolumn{3}{p{11cm}}{El usuario final al entrar a la \textit{landing page}, tendr\'a la opci\'on de entrar a la plataforma y utilizarla}\\
+  \hline
+  \multirow{2}{3cm}{Precondiciones:} & \multicolumn{3}{p{11cm}}{$\bullet$ PRE-1. El usuario final cuenta con conexi\'on a internet}\\
+		  & \multicolumn{3}{p{11cm}}{$\bullet$ PRE-2. El usuario final cuenta con un correo electr\'onico}\\
+  \hline
+  Postcondiciones: & \multicolumn{3}{p{11cm}}{$\bullet$ POST-1. El usuario tendr\'a acceso a sus tareas}\\
+  \hline
+  \multirow{7}{3cm}{Flujo normal:} & \multicolumn{3}{p{11cm}}{\textbf{\thetable.0. Entrar a la plataforma}}\\
+		& \multicolumn{3}{p{11cm}}{$\bullet$ El usuario desde la \textit{landing page} interact\'ua con el bot\'on ``Entrar''}\\
+		& \multicolumn{3}{p{11cm}}{$\bullet$ La aplicaci\'on redigire al usuario final a una pantalla con el respectivo inicio de sesi\'on}\\
+		& \multicolumn{3}{p{11cm}}{$\bullet$ El usuario ingresa su correo y contrase\~na en los apartados}\\
+		& \multicolumn{3}{p{11cm}}{$\bullet$ Una vez ingresados los dos campos, el usuario interact\'ua con el bot\'on ``Ingresar'', y estos datos son enviados}\\
+		& \multicolumn{3}{p{11cm}}{$\bullet$ El sistema valida en la base de datos que el usuario est\'e registrado}\\
+		& \multicolumn{3}{p{11cm}}{$\bullet$ Una vez confirmados los datos, el usuario ser\'a redirigido a la pantalla principal donde ver\'a sus tareas}\\
+  \hline
+  \multirow{5}{3cm}{Flujo alternativo:} & \multicolumn{3}{p{11cm}}{\textbf{\thetable.1. Registro de usuario nuevo \hfill}}\\
+		     & \multicolumn{3}{p{11cm}}{$\bullet$ En caso de que el usuario no est\'e registrado, tendr\'a la opcion de registrarse mediante un bot\'on con el que interactuar\'a}\\
+		     & \multicolumn{3}{p{11cm}}{$\bullet$ La aplicaci\'on redirigir\'a al usuario a una pantalla donde ingresar\'a su nombre, correo electr\'onico y contrase\~na}\\
+		     & \multicolumn{3}{p{11cm}}{$\bullet$ El sistema validar\'a la petici\'on}\\
+		     & \multicolumn{3}{p{11cm}}{$\bullet$ Una vez validada la petici\'on, el usuario tendr\'a acceso a la plataforma}\\
+  \hline
+  \multirow{6}{3cm}{Excepciones:} & \multicolumn{3}{p{11cm}}{\textbf{\thetable.0.E1. Correo o contrase\~na incorrectos}}\\
+	       & \multicolumn{3}{p{11cm}}{$\bullet$ Si la validaci\'on no encuentra al usuario con el correo o contrase\~na especificados, el sistema devuelve un error}\\
+	       & \multicolumn{3}{p{11cm}}{$\bullet$ La aplicaci\'on atrapa el error, y muestra al usuario que el usuario o contrase\~na son incorrectos}\\
+	       & \multicolumn{3}{p{11cm}}{\textbf{\thetable.1.E2. Usuario ya registrado}}\\
+	       & \multicolumn{3}{p{11cm}}{$\bullet$ Si el sistema al validar el registro del nuevo usuario, encuentra a uno con ese correo electr\'onico ya registrado, arroja un error}\\
+	       & \multicolumn{3}{p{11cm}}{$\bullet$ La aplicaci\'on atrapa este error y muestra que el usuario ya ha sido registrado}\\
+  \hline
+  Prioridad & \multicolumn{3}{p{11cm}}{Alta}\\
+  \hline
+  Frecuencia de uso & \multicolumn{3}{p{11cm}}{Al menos una vez por semana}\\
+  \hline
+  Reglas de negocio & \multicolumn{3}{p{11cm}}{\ref{rn:user}}\\
+  \hline
+\end{longtable}
+\pagebreak
+\begin{longtable}[c]{p{3cm}p{5cm}p{4cm}p{2cm}}
+  \endfirsthead
+  \endhead
+  \endfoot
+  \hline
+  ID y nombre & \multicolumn{3}{p{11cm}}{CU-\thetable. Crear una tarea}\\
+  \hline
+  Creado por: & Alejandro & Fecha de creaci\'on & 24-11-05\\
+  \hline
+  Actor principal: & Usuario final & Actores secundarios: & Base de datos, aplicaci\'on principal\\
+  \hline
+  Descripci\'on & \multicolumn{3}{p{11cm}}{El usuario final especificar\'a una tarea a crear con el bot\'on para crear una nueva tarea. Tendr\'a que especificar el nombre de la tarea (obligatorio), una descripci\'on (opcional) y una fecha de la tarea (opcional)}\\
+  \hline
+  Trigger: & \multicolumn{3}{p{11cm}}{El usuario final indica que quiere crear una tarea con el bot\'on especificado}\\
+  \hline
+  Precondiciones: & \multicolumn{3}{p{11cm}}{$\bullet$ PRE-1. El usuario est\'a registrado en la base de datos}\\
+		  & \multicolumn{3}{p{11cm}}{$\bullet$ PRE-2. El usuario cuenta con conexi\'on a internet para acceder al sistema}\\
+  \hline
+  Postcondiciones: & \multicolumn{3}{p{11cm}}{$\bullet$ POST-1. La tarea ser\'a guardada en la base de datos}\\
+		   & \multicolumn{3}{p{11cm}}{$\bullet$ POST-2. La tarea ser\'a mostrada en la p\'agina principal del usuario}\\
+  \hline
+  Flujo normal: & \multicolumn{3}{p{11cm}}{\textbf{\thetable.0. Crear una tarea}}\\
+		& \multicolumn{3}{p{11cm}}{$\bullet$ El usuario final pide al sistema crear una nueva tarea mediante la aplicaci\'on}\\
+		& \multicolumn{3}{p{11cm}}{$\bullet$ La aplicaci\'on despliega los campos a llenar para la tarea}\\
+		& \multicolumn{3}{p{11cm}}{$\bullet$ Una vez llenados los campos, el usuario interact\'ua con la aplicaci\'on para guardar la tarea}\\
+		& \multicolumn{3}{p{11cm}}{$\bullet$ La tarea es enviada a la base de datos del sistema y la valida}\\
+  \hline
+  Flujo alternativo: & \multicolumn{3}{p{11cm}}{\textbf{\thetable.1. Crear una tarea anidada}}\\
+		     & \multicolumn{3}{p{11cm}}{$\bullet$ Al seleccionar una tarea, la aplicaci\'on le mostrar\'a al usuario distintos campos para editar, en uno de ellos, el agregar tareas anidadas}\\
+		     & \multicolumn{3}{p{11cm}}{$\bullet$ Al seleccionar el campo, se desplegar\'a un campo donde el usuario dar\'a el nombre de la tarea, junto con una opci\'on para guardar la tarea}\\
+		     & \multicolumn{3}{p{11cm}}{$\bullet$ Al indicarle el usuario a la aplicaci\'on que quiere guardar la tarea anidada, esta enviar\'a al sistema que se quiere crear una tarea anidada, pas\'andole el identificador de la tarea anidada, junto con el identificador de la tarea padre como campo}\\
+		     & \multicolumn{3}{p{11cm}}{$\bullet$ El sistema guarda la tarea anidada en la base de datos}\\
+  \hline
+  Excepciones: & \multicolumn{3}{p{11cm}}{\textbf{\thetable.0.E1. La tarea ya ha sido creada}}\\
+	       & \multicolumn{3}{p{11cm}}{$\bullet$ Si la validaci\'on de la base de datos encuentra que la tarea ya ha sido creada, arroja un error}\\
+	       & \multicolumn{3}{p{11cm}}{$\bullet$ La aplicaci\'on escucha si la base de datos arroj\'o el error, y muestra al usuario que la tarea ya ha sido creada}\\
+	       & \multicolumn{3}{p{11cm}}{$\bullet$ El usuario no podr\'a guardar la tarea hasta que el campo del t\'itulo sea cambiado}\\
+  \hline
+  Prioridad: & \multicolumn{3}{p{11cm}}{Alta}\\
+  \hline
+  Frecuencia de uso: & \multicolumn{3}{p{11cm}}{Aproximadamente de 1 a 5 veces por d\'ia por usuario}\\
+  \hline
+  Reglas de negocio: & \multicolumn{3}{p{11cm}}{\ref{rn:nombre}, \ref{rn:thija}, \ref{rn:desc}, \ref{rn:fecha}, \ref{rn:estado}, \ref{rn:prioridad}}\\
+  \hline
+  Informaci\'on adicional: & \multicolumn{3}{p{11cm}}{La aplicaci\'on deber\'a de mostrar en una ventana emergente los campos a llenar}\\
+  \hline
+  Asumciones: & \multicolumn{3}{p{11cm}}{Las tareas subidas no se tomar\'an como completadas}\\
+  \hline
+\end{longtable}
+\pagebreak
+\begin{longtable}[c]{p{3cm}p{5cm}p{4cm}p{2cm}}
+  \endfirsthead
+  \endhead
+  \endfoot
+  \hline
+  ID y nombre & \multicolumn{3}{p{11cm}}{CU-\thetable. Eliminar una tarea}\\
+  \hline
+  Creado por: & Alejandro & Fecha de creaci\'on & 24-11-05\\
+  \hline
+  Actor principal: & Usuario final & Actores secundarios: & Base de datos, aplicaci\'on principal\\
+  \hline
+  Descripci\'on & \multicolumn{3}{p{11cm}}{El usuario eliminar\'a de sus tareas una tarea especificada por este por medio de la aplicaci\'on.}\\
+  \hline
+  Trigger: & \multicolumn{3}{p{11cm}}{El usuario final indica que quiere eliminar una tarea con el bot\'on especificado}\\
+  \hline
+  Precondiciones: & \multicolumn{3}{p{11cm}}{PRE-1. El usuario est\'a registrado en la base de datos}\\
+		  & \multicolumn{3}{p{11cm}}{PRE-2. El usuario cuenta con conexi\'on a internet para acceder al sistema}\\
+		  & \multicolumn{3}{p{11cm}}{PRE-3. El usuario cuenta con al menos una tarea registrada en la base de datos}\\
+  \hline
+  Postcondiciones: & \multicolumn{3}{p{11cm}}{POST-1. La tarea ser\'a eliminada permanentemente en la base de datos}\\
+		   & \multicolumn{3}{p{11cm}}{POST-2. La tarea dejar\'a de ser mostrada mostrada en la p\'agina principal del usuario}\\
+  \hline
+  Flujo normal: & \multicolumn{3}{p{11cm}}{\textbf{\thetable.0. Eliminar una tarea}}\\
+		& \multicolumn{3}{p{11cm}}{$\bullet$ El usuario final pide al sistema eliminar una tarea seleccionada mediante la aplicaci\'on}\\
+		& \multicolumn{3}{p{11cm}}{$\bullet$ La aplicaci\'on despliega una ventana emergente con un mensaje de que quiere corroborar eliminar la tarea, junto con dos opciones, las cuales son ``Cancelar'' y ``Confirmar''. En caso de seleccionar ``Cancelar'', el sistema no borra la tarea y la ventana emergente desaparece}\\
+		& \multicolumn{3}{p{11cm}}{$\bullet$ Una vez confirmada la elecci\'on, la aplicaci\'on env\'ia la petici\'on a la base de datos de eliminar la tarea seleccionada}\\
+		& \multicolumn{3}{p{11cm}}{$\bullet$ La tarea es eliminada de la base del datos del sistema}\\
+  \hline
+  Flujo alternativo: & \multicolumn{3}{p{11cm}}{\textbf{\thetable.1. Eliminar m\'ultiples tareas}}\\
+	       & \multicolumn{3}{p{11cm}}{$\bullet$ El usuario mediante la opci\'on de seleccionar m\'ultiples tareas que provee la aplicaci\'on, escoge distintas tareas destinadas a eliminar}\\
+	       & \multicolumn{3}{p{11cm}}{$\bullet$ El usuario utiliza la implementaci\'on de eliminar tarea que provee la aplicaci\'on para eliminar las tareas seleccionadas previamente}\\
+	       & \multicolumn{3}{p{11cm}}{$\bullet$ La aplicaci\'on env\'ia al sistema los identificadores de las tareas a eliminar}\\
+	       & \multicolumn{3}{p{11cm}}{$\bullet$ El sistema hace la petici\'on a la base de datos para eliminar los registros de las tareas especificadas}\\
+	       & \multicolumn{3}{p{11cm}}{$\bullet$ Las tareas son eliminadas de la base de datos}\\
+  \hline
+  Prioridad: & \multicolumn{3}{p{11cm}}{Alta}\\
+  \hline
+  Frecuencia de uso: & \multicolumn{3}{p{11cm}}{Aproximadamente de 1 a 2 veces por d\'ia por usuario}\\
+  \hline
+  Reglas de negocio: & \multicolumn{3}{p{11cm}}{Por definir}\\
+  \hline
+  Informaci\'on adicional: & \multicolumn{3}{p{11cm}}{La aplicaci\'on deber\'a de mostrar en una ventana emergente el mensaje de confirmaci\'on}\\
+  \hline
+  Asumciones: & \multicolumn{3}{p{11cm}}{El usuario tiene al menos una tarea registrada}\\
+  \hline
+\end{longtable}
+\pagebreak
+\begin{longtable}[c]{p{3cm}p{5cm}p{4cm}p{2cm}}
+  \endfirsthead
+  \endhead
+  \endfoot
+  \hline
+  ID y nombre & \multicolumn{3}{p{11cm}}{CU-\thetable. Editar una tarea}\\
+  \hline
+  Creado por: & Alejandro & Fecha de creaci\'on & 24-11-06\\
+  \hline
+  Actor principal: & Usuario final & Actores secundarios: & Base de datos, aplicaci\'on principal\\
+  \hline
+  Descripci\'on & \multicolumn{3}{p{11cm}}{El usuario podr\'a editar una tarea por medio de la aplicaci\'on.}\\
+  \hline
+  Trigger: & \multicolumn{3}{p{11cm}}{El usuario final indica que quiere editar una tarea al entrar en una tarea}\\
+  \hline
+  Precondiciones: & \multicolumn{3}{p{11cm}}{PRE-1. El usuario est\'a registrado en la base de datos}\\
+		  & \multicolumn{3}{p{11cm}}{PRE-2. El usuario cuenta con conexi\'on a internet para acceder al sistema}\\
+		  & \multicolumn{3}{p{11cm}}{PRE-3. El usuario cuenta con al menos una tarea registrada en la base de datos}\\
+  \hline
+  Postcondiciones: & \multicolumn{3}{p{11cm}}{POST-1. La tarea ser\'a editada en la base de datos}\\
+		   & \multicolumn{3}{p{11cm}}{POST-2. La tarea ser\'a mostrada con su nueva informaci\'on en la p\'agina principal del usuario}\\
+  \hline
+  Flujo normal: & \multicolumn{3}{p{11cm}}{\textbf{\thetable.0. Editar una tarea}}\\
+		& \multicolumn{3}{p{11cm}}{$\bullet$ El usuario final selecciona una tarea}\\
+		& \multicolumn{3}{p{11cm}}{$\bullet$ La aplicaci\'on despliega una ventana con los datos de la tarea, dej\'andolos abiertos para editarlos}\\
+		& \multicolumn{3}{p{11cm}}{$\bullet$ Una vez el usuario haya editado la tarea a voluntad, el usuario interact\'ua con la aplicaci\'on en un bot\'on dedicado para guardar la tarea}\\
+		& \multicolumn{3}{p{11cm}}{$\bullet$ La aplicaci\'on env\'ia al sistema que se quieren actualizar los datos de la tarea especificada}\\
+		& \multicolumn{3}{p{11cm}}{$\bullet$ El sistema valida la actualizaci\'on}\\
+		& \multicolumn{3}{p{11cm}}{$\bullet$ El sistema actualiza la informaci\'on de la tarea especificada en la base de datos}\\
+  \hline
+  Excepciones & \multicolumn{3}{p{11cm}}{\textbf{\thetable.0.E1. Renombrar como una tarea ya creada}}\\
+	      & \multicolumn{3}{p{11cm}}{$\bullet$ En caso de que el nombre de la tarea ya exista, el sistema arroja un error de que la tarea ya existe.}\\
+	      & \multicolumn{3}{p{11cm}}{$\bullet$ La aplicaci\'on atrapa el error, y despliega en una ventana emergente el error.}\\
+  \hline
+  Prioridad: & \multicolumn{3}{p{11cm}}{Alta}\\
+  \hline
+  Frecuencia de uso: & \multicolumn{3}{p{11cm}}{Aproximadamente de 1 a 2 veces por d\'ia por usuario}\\
+  \hline
+  Reglas de negocio: & \multicolumn{3}{p{11cm}}{Por definir}\\
+  \hline
+  Asumciones: & \multicolumn{3}{p{11cm}}{El usuario tiene al menos una tarea registrada}\\
+  \hline
+\end{longtable}
+\pagebreak
+\begin{longtable}[c]{p{3cm}p{5cm}p{4cm}p{2cm}}
+  \endfirsthead
+  \endhead
+  \endfoot
+  \hline
+  ID y nombre: & \multicolumn{3}{p{11cm}}{CU-\thetable. Visualizar en orden espec\'ifico las tareas}\\
+  \hline
+  Creado por: & \multicolumn{3}{p{11cm}}{Alejandro}\\
+  \hline
+  Actor principal: & Usuario final & Actores secundarios & Base de datos, aplicaci\'on principal\\
+  \hline
+  Descripci\'on: & \multicolumn{3}{p{11cm}}{El usuario podr\'a visualizar en \'ordenes predefinidos sus tareas, complementando la visualizaci\'on predeterminada de estas}\\
+  \hline
+  Trigger: & \multicolumn{3}{p{11cm}}{El usuario final interact\'ua con la aplicaci\'on para agregar una jerarqu\'ia de visualizaci\'on a la existente por prioridades}\\
+  \hline
+  \multirow{3}{3cm}{Precondiciones:} & \multicolumn{3}{p{11cm}}{$\bullet$ PRE-1. El usuario cuenta con conexi\'on a internet}\\
+                  & \multicolumn{3}{p{11cm}}{$\bullet$ PRE-2. El usuario est\'a registrado en la base de datos}\\
+                  & \multicolumn{3}{p{11cm}}{$\bullet$ PRE-3. El usuario tiene al menos una tarea creada}\\
+  \hline
+  \multirow{2}{3cm}{Postcondiciones:} & \multicolumn{3}{p{11cm}}{$\bullet$ POST-1. El estado de ordenamiento ser\'a guardado si se vuelve a visitar el sitio}\\
+                   & \multicolumn{3}{p{11cm}}{$\bullet$ POST-2. La visualizaci\'on no afectar\'a al contenido de las tareas}\\
+  \hline
+  \multirow{3}{3cm}{Flujo normal:} & \multicolumn{3}{p{11cm}}{\textbf{\thetable.0. Visualizar en orden espec\'ifico las tareas}}\\
+		& \multicolumn{3}{p{11cm}}{$\bullet$ El usuario indica desde el apartado el nuevo orden de visualizaci\'on}\\
+                   & \multicolumn{3}{p{11cm}}{$\bullet$ La aplicaci\'on recibe la petici\'on, y esta reordena los elementos, sin dejar de respetar los apartados de prioridad}\\
+  \hline
+  Prioridad: & \multicolumn{3}{p{11cm}}{Media}\\
+  \hline
+  Frecuencia de uso: & \multicolumn{3}{p{11cm}}{Aproximadamente una vez por sesi\'on por usuario}\\
+  \hline
+\end{longtable}

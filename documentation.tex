@@ -1,0 +1,91 @@
+\documentclass[a4paper, 12pt]{report}
+\setlength{\headheight}{15.71667pt}
+\addtolength{\topmargin}{-3.71667pt}
+\usepackage[spanish,mexico]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{longtable}
+\usepackage{listings}
+\usepackage{titlesec}
+\usepackage{multirow}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{microtype}
+
+\geometry{left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=black,
+	urlcolor=blue,
+}
+
+\renewcommand{\thetable}{\arabic{table}}
+
+% Encabezado y pie de página
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Documentación}
+\fancyhead[R]{\leftmark}
+\fancyfoot[C]{\thepage}
+
+% Datos de portada
+\newcommand{\portada}{
+    \begin{titlepage}
+        \centering
+        \vspace*{1cm}
+        
+        \includegraphics[width=0.2\textwidth]{./images/escudo_principal.png} \hfill
+        \includegraphics[width=0.2\textwidth]{./images/escudo_secundario.png}
+        
+        \vspace{2cm}
+        
+        {\Huge \textbf{Proyecto Final\\Ingeniería de Requerimientos}}
+        
+        \vspace{1.5cm}
+        
+        {\Large Documentación del Proyecto}
+        
+        \vspace{2cm}
+        
+        \textbf{Participantes:}
+        
+        \vspace{0.5cm}
+        \begin{center}
+				\href{https://github.com/dmataguerra}{David Mata Guerra}\\
+				\href{https://jmacias8075.site}{Alejandro Macías Fonseca}\\
+				\href{https://github.com/Alexiiis21}{Alexis Emilio Cárdenas Camacho} \\
+				Gabriel Juárez Ramírez \\
+		\end{center}
+        
+        \vfill
+        
+        {\Large Universidad Autónoma de Querétaro}
+        
+        \vspace{0.5cm}
+        
+        {\Large \today}
+        
+    \end{titlepage}
+}
+
+\begin{document}
+	\portada
+	\tableofcontents
+	\newpage
+	
+	% Capítulo 1 - Descripción General del Proyecto
+	\include{descripcion-general-del-proyecto}
+	% Capítulo 2 - Especificación de Requisitos
+	\include{especificacion-de-requerimientos}
+	% Capítulo 3 - Análisis y Diseño del Sistema
+	\include{analisis-y-diseno-del-sistema}
+	% Capítulo 4 - Planificación y Gestión del Proyecto
+	\include{planificacion-y-gestion-del-proyecto}
+	% Capítulo 5 - Manual de Usuario
+	\include{manual-de-usuario}
+	% Capítulo 6 - Manual Técnico o de Mantenimiento
+	\include{documentacion-de-despliegue}
+	% Capítulo 7 - Registro de Cambios
+	\include{registro-de-cambios}
+\end{document}

@@ -1,0 +1,67 @@
+\chapter{Especificación de Requerimientos}
+\section{Requerimientos Funcionales}
+\begin{itemize}
+  \item Gestión de tareas:
+    \begin{itemize}
+      \item Crear tareas.
+      \item Editar tareas.
+      \item Eliminar tareas.
+      \item Marcar tareas como completadas.
+    \end{itemize}
+  \item Visualización de tareas:
+    \begin{itemize}
+      \item Interfaz intuitiva y práctica de utilizar.
+      \item El usuario pueda reconocer todos los cambios realizados de manera visual.
+    \end{itemize}
+    \section{Stakeholders}
+    \begin{itemize}
+        \item Desarrolladores.
+        \item Usuarios.
+        \item Profesor.
+    \end{itemize}
+\end{itemize}
+\section{Reglas de Negocio}
+\begin{enumerate}[start=1, label={RN\arabic*.}]
+  \item Las tareas deben de pertenecer a una persona \label{rn:user}
+  \item Las tareas deben de tener un nombre \label{rn:nombre}
+  \item Las tareas hija no deben de pertenecer a m\'ultiples tareas padre \label{rn:thija}
+  \item Las tareas pueden tener una descripci\'on \label{rn:desc}
+  \item Las tareas pueden tener una fecha \label{rn:fecha}
+  \item Las tareas tienen dos estados \label{rn:estado}
+    \begin{itemize}
+      \item Sin completar
+      \item Completado
+    \end{itemize}
+  \item Las tareas pueden tener 4 niveles de prioridades. \label{rn:prioridad}
+    \begin{itemize}
+      \item Ninguna
+      \item Baja
+      \item Media
+      \item Alta
+    \end{itemize}
+    El valor predeterminado es ``Ninguno''
+  \item Las tareas pueden ser recurrentes
+\end{enumerate}
+	\section{Casos de Uso}
+	\input{casos-de-uso.tex} 
+    
+    \section{Historias de Usuario}
+    \begin{enumerate}[start=1, label=HU\arabic*.]
+        \item Como usuario, quiero poder crear nuevas tareas para organizar y gestionar mis actividades diarias.
+        
+        \item Como usuario, quiero poder ver una lista de todas mis tareas pendientes para tener una visión clara de lo que necesito hacer.
+        
+        \item Como usuario, quiero poder marcar las tareas como completadas para llevar un seguimiento de mi progreso.
+        
+        \item Como usuario, quiero poder establecer fechas límite para mis tareas para asegurarme de cumplir con mis plazos.
+
+        \item Como usuario, quiero poder editar mis tareas para poder hacer cambios en ellas si es necesario.
+    \end{enumerate}
+\section{Requerimientos No Funcionales}
+\begin{itemize}
+  \item Rendimiento:
+    \begin{itemize}
+      \item No debe de haber errores en la logica de programacion.
+      \item La aplicación debe de ser rápida y eficiente.
+    \end{itemize}
+\end{itemize}
